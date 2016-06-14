@@ -1,0 +1,18 @@
+Rectangle1:
+  Left top: (5,0)
+  Size: (30,20)
+  Right bottom: (35,20)
+  Area: (600)
+  Perimeter: (100)
+Rectangle2:
+  Left top: (5,0)
+  Size: (30,20)
+  Right bottom: (35,20)
+  Area: (600)
+  Perimeter: (100)
+Intersect rectangle:
+  Left top: (5,0)
+  Size: (30,20)
+  Right bottom: (35,20)
+  Area: (600)
+  Perimeter: (100)

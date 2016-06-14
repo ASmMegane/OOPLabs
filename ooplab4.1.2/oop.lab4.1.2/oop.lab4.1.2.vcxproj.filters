@@ -24,7 +24,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyList.h">
+    <ClInclude Include="IShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,7 +32,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="oop.lab7.2.3.cpp">
+    <ClCompile Include="oop.lab4.1.2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

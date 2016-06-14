@@ -1,0 +1,2 @@
+Rectangle 20 30 17 25 #ff0000 #00ff00
+Rectangle 20 30 50 50 #ff0000 #00ff00

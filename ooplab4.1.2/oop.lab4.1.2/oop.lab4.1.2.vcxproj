@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{36DBF40C-0B43-4F61-BD0A-6576533FA5B7}</ProjectGuid>
+    <ProjectGuid>{2F8F4E4A-1109-45B7-A0C9-E5CAD6051E88}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ooplab723</RootNamespace>
+    <RootNamespace>ooplab412</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,12 +145,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyList.h" />
+    <ClInclude Include="IShape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="oop.lab7.2.3.cpp" />
+    <ClCompile Include="oop.lab4.1.2.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
