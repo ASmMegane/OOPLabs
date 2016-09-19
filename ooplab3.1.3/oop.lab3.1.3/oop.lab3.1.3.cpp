@@ -53,7 +53,7 @@ void OutputRectangle(const CRectangle & rectangle, std::string rectangleName)
 	std::cout << rectangleName << std::endl;
 	std::cout << "  Left top: (" << rectangle.GetPosition().x << "," << rectangle.GetPosition().y << ")" << std::endl;
 	std::cout << "  Size: (" << rectangle.GetSize().width << "," << rectangle.GetSize().height << ")" << std::endl;
-	std::cout << "  Right bottom: (" << rectangle.GetPositionRightBot().x << "," << rectangle.GetPositionRightBot().y << ")" << std::endl;
+	std::cout << "  Right bottom: (" << rectangle.GetPositionRightBottom().x << "," << rectangle.GetPositionRightBottom().y << ")" << std::endl;
 	std::cout << "  Area: (" << rectangle.GetArea() << ")" << std::endl;
 	std::cout << "  Perimeter: (" << rectangle.GetPerimeter() << ")" << std::endl;
 }

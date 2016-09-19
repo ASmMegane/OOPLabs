@@ -10,19 +10,19 @@ public:
 	};
 	struct Size
 	{
-		size_t width;
-		size_t height;
+		int width;
+		int height;
 	};
-	CRectangle()
+	CRectangle() 
 	{
-		position.x = 0;
-		position.y = 0;
-		size.width = 0;
-		size.height = 0;
+		m_position.x = 0;
+		m_position.y = 0;
+		m_size.width = 0;
+		m_size.height = 0;
 	}
-	CRectangle(const int x, const int y, const size_t width, const size_t height);
-	size_t GetArea() const;
-	size_t GetPerimeter() const;
+	CRectangle(int x, int y, int width, int height);
+	unsigned int GetArea() const;
+	unsigned int GetPerimeter() const;
 
 	const Size & GetSize() const;
 	void SetSize(const int widthIn, const int heightIn);
@@ -30,13 +30,13 @@ public:
 	const Position & GetPosition() const;
 	void SetPosition(const int xIn, const int yIn);
 
-	const Position GetPositionRightBot() const;
-	void SetPositionRightBot(const int xRIn, const int yBIn);
+	const Position GetPositionRightBottom() const;
+	void SetPositionRightBottom(const int xRIn, const int yBIn);
 
 	void Move(const int dx, const int dy);
 	void Scale(const int sx, const int sy);
 	bool Intersect(CRectangle const& other);
 private:
-	Size size;
-	Position position;
+	Size m_size;
+	Position m_position;
 };

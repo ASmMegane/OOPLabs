@@ -2,7 +2,7 @@
 #include "CRectangel.h"
 #include <algorithm>
 
-CRectangle::CRectangle(const int x, const int y, const size_t width, const size_t height)
+CRectangle::CRectangle(int x, int y, int width, int height)
 {
 	SetPosition(x, y);
 	SetSize(width, height);
@@ -20,76 +20,76 @@ size_t CRectangle::GetPerimeter() const
 
 const CRectangle::Size & CRectangle::GetSize() const
 {
-	return size;
+	return m_size;
 	
 }
 
 void CRectangle::SetSize(const int widthIn, const int heightIn)
 {
-	size.width = std::max(widthIn, 0);
-	size.height = std::max(heightIn, 0);
+	m_size.width = std::max(widthIn, 0);
+	m_size.height = std::max(heightIn, 0);
 }
 
 const CRectangle::Position & CRectangle::GetPosition() const
 {
-	return position;
+	return m_position;
 }
 
 void CRectangle::SetPosition(const int xIn, const int yIn)
 {
-	position.x = xIn;
-	position.y = yIn;
+	m_position.x = xIn;
+	m_position.y = yIn;
 }
 
-const CRectangle::Position CRectangle::GetPositionRightBot() const
+const CRectangle::Position CRectangle::GetPositionRightBottom() const
 {
-	CRectangle::Position positionRightBot = position;
-	positionRightBot.x += size.width;
-	positionRightBot.y += size.height;
+	CRectangle::Position positionRightBot = m_position;
+	positionRightBot.x += m_size.width;
+	positionRightBot.y += m_size.height;
 	return positionRightBot;
 }
 
-void CRectangle::SetPositionRightBot(const int xRIn, const int yBIn)
+void CRectangle::SetPositionRightBottom(const int xRIn, const int yBIn)
 {
-	position.x = xRIn - size.width;
-	position.y = yBIn - size.height;
+	m_position.x = xRIn - m_size.width;
+	m_position.y = yBIn - m_size.height;
 }
 
 void CRectangle::Move(const int dx, const int dy)
 {
-	position.x += dx;
-	position.y += dy;
+	m_position.x += dx;
+	m_position.y += dy;
 }
 
 void CRectangle::Scale(const int sx, const int sy)
 {
 	if (sx >= 0)
 	{
-		size.width *= sx;
+		m_size.width *= sx;
 	}
 	if (sy >= 0)
 	{
-		size.height *= sy;
+		m_size.height *= sy;
 	}
 }
 
 bool CRectangle::Intersect(const CRectangle & other)
 {
-	if (GetPositionRightBot().x > other.GetPosition().x && GetPosition().x < other.GetPositionRightBot().x
-		 && GetPositionRightBot().y > other.GetPosition().y && GetPosition().y < other.GetPositionRightBot().y)
+	if (GetPositionRightBottom().x > other.GetPosition().x && GetPosition().x < other.GetPositionRightBottom().x
+		 && GetPositionRightBottom().y > other.GetPosition().y && GetPosition().y < other.GetPositionRightBottom().y)
 	{
 		CRectangle::Position positionLT;
 		positionLT.x = std::max(GetPosition().x, other.GetPosition().x);
 		positionLT.y = std::max(GetPosition().y, other.GetPosition().y);
 
 		CRectangle::Position positionRB;
-		positionRB.x = std::min(GetPositionRightBot().x, other.GetPositionRightBot().x);
-		positionRB.y = std::min(GetPositionRightBot().y, other.GetPositionRightBot().y);
+		positionRB.x = std::min(GetPositionRightBottom().x, other.GetPositionRightBottom().x);
+		positionRB.y = std::min(GetPositionRightBottom().y, other.GetPositionRightBottom().y);
 
 		SetPosition(positionLT.x, positionLT.y);
 		SetSize(positionRB.x - positionLT.x, positionRB.y - positionLT.y);
 		return true;		
 	}
-
+	SetSize(0, 0);
 	return false;
 }
