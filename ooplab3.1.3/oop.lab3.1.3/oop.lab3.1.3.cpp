@@ -21,7 +21,7 @@ void ReadRectangle(const std::string & inFileRectangle, CRectangle & rectangle)
 			{
 				throw std::invalid_argument("");
 			}
-			rectangle.SetPosition(x, y);
+			rectangle.SetPositionLeftTop(x, y);
 			rectangle.SetSize(width, height);
 		}
 		else if (command == "Move")
@@ -51,7 +51,7 @@ void ReadRectangle(const std::string & inFileRectangle, CRectangle & rectangle)
 void OutputRectangle(const CRectangle & rectangle, std::string rectangleName)
 {
 	std::cout << rectangleName << std::endl;
-	std::cout << "  Left top: (" << rectangle.GetPosition().x << "," << rectangle.GetPosition().y << ")" << std::endl;
+	std::cout << "  Left top: (" << rectangle.GetPositionLeftTop().x << "," << rectangle.GetPositionLeftTop().y << ")" << std::endl;
 	std::cout << "  Size: (" << rectangle.GetSize().width << "," << rectangle.GetSize().height << ")" << std::endl;
 	std::cout << "  Right bottom: (" << rectangle.GetPositionRightBottom().x << "," << rectangle.GetPositionRightBottom().y << ")" << std::endl;
 	std::cout << "  Area: (" << rectangle.GetArea() << ")" << std::endl;
