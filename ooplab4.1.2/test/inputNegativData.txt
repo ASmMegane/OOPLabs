@@ -1,5 +1,0 @@
-Rectangle 20 30 -17 -25 #ff0000 #00ff00
-Triangle 0 0 0 6 -8 0 #ff0000 #00ff00
-Circle 5 5 -10 #ff0000 #00ff00
-Point 9 -5 #ff0000
-Line 3 4 -10 12 #ff0000
