@@ -21,8 +21,8 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<IShape>>
 			{
 				throw std::invalid_argument("");
 			}
-			std::shared_ptr<CPoint> pointPtr(new CPoint(x, y));
-			pointPtr->SetColorLine(color);
+			std::shared_ptr<CPointShape> pointPtr(new CPointShape(x, y));
+			pointPtr->SetLineColor(color);
 			shapesVector.push_back(pointPtr);
 		}
 		else if (type == "Line")
@@ -35,7 +35,7 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<IShape>>
 				throw std::invalid_argument("");
 			}
 			std::shared_ptr<CLineSegment> linePtr(new CLineSegment(CPoint(x1, y1), CPoint(x2, y2)));
-			linePtr->SetColorLine(color);
+			linePtr->SetLineColor(color);
 			shapesVector.push_back(linePtr);
 		}
 		else if (type == "Circle")
@@ -50,8 +50,8 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<IShape>>
 				throw std::invalid_argument("");
 			}
 			std::shared_ptr<CCircle> circlePtr(new CCircle(CPoint(x, y), radius));
-			circlePtr->SetColorLine(color);
-			circlePtr->SetColorShape(colorShape);
+			circlePtr->SetLineColor(color);
+			circlePtr->SetShapeColor(colorShape);
 			shapesVector.push_back(circlePtr);
 		}
 		else if (type == "Rectangle")
@@ -65,8 +65,8 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<IShape>>
 				throw std::invalid_argument("");
 			}
 			std::shared_ptr<CRectangle> circlePtr(new CRectangle(CPoint(x, y), width, height));
-			circlePtr->SetColorLine(color);
-			circlePtr->SetColorShape(colorShape);
+			circlePtr->SetLineColor(color);
+			circlePtr->SetShapeColor(colorShape);
 			shapesVector.push_back(circlePtr);
 		}
 		else if (type == "Triangle")
@@ -80,8 +80,8 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<IShape>>
 				throw std::invalid_argument("");
 			}
 			std::shared_ptr<CTriangle> circlePtr(new CTriangle(CPoint(x1, y1), CPoint(x2, y2), CPoint(x3, y3)));
-			circlePtr->SetColorLine(color);
-			circlePtr->SetColorShape(colorShape);
+			circlePtr->SetLineColor(color);
+			circlePtr->SetShapeColor(colorShape);
 			shapesVector.push_back(circlePtr);
 		}
 		inputFile >> type;

@@ -2,63 +2,64 @@
 #include "IShape.h"
 
 //------------IShape--------------
-void IShape::SetColorLine(std::string const & colorInput)
+void IShape::SetLineColor(std::string const & colorInput)
 {
-	colorShapeLine = colorInput; 
+	m_shapeLineColor = colorInput; 
 }
 //--------------------------------
 
 
 //---------------ISolidShape-------------
-void ISolidShape::SetColorShape(std::string const & colorInput)
+void ISolidShape::SetShapeColor(std::string const & colorInput)
 {
-	colorShape = colorInput; 
+	m_shapeColor = colorInput; 
 }
 //---------------------------------------
 
 
 //--------------CPoint-----------------
-void CPoint::SetPosition(int x, int y)
+void CPointShape::SetPosition(int x, int y)
 {
-	position.x = x; position.y = y; 
+	m_position.x = x; m_position.y = y; 
 }
 
-CPoint::Position CPoint::GetPosition() const 
+CPointShape::Position CPointShape::GetPosition() const 
 {
-	return position; 
+	return m_position; 
 }
 
-float CPoint::GetArea() const
+float CPointShape::GetArea() const
 {
 	return 0.0f; 
 }
 
-float CPoint::GetPerimetr() const 
+float CPointShape::GetPerimetr() const 
 {
 	return 0.0f;
 }
 
-std::string CPoint::GetTypeShape() const 
+std::string CPointShape::GetShapeType() const 
 {
 	return "Point"; 
 }
 
-std::string CPoint::GetStringRepresentation() const
+std::string CPointShape::GetStringRepresentation() const
 {
 	std::string stringAreaAndPerimetr = "S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	return std::string(GetTypeShape() + " <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, " + stringAreaAndPerimetr);
+	return std::string(GetShapeType() + " <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, " + stringAreaAndPerimetr);
 }
 //-----------------------------------------
 
 
 //--------------CLineSegment----------------
-CPoint CLineSegment::GetPointPosition(int numberPoint)
+const CPoint CLineSegment::GetPointPosition1()
 {
-	if (numberPoint == 2)
-		return point2;
-	else
-		
-		return point1;
+	return m_point1;
+};
+
+const CPoint CLineSegment::GetPointPosition2()
+{
+	return m_point2;
 };
 
 float CLineSegment::GetArea() const 
@@ -68,10 +69,10 @@ float CLineSegment::GetArea() const
 
 float CLineSegment::GetPerimetr() const 
 {
-	return (float)sqrt(pow(point1.GetPosition().x - point2.GetPosition().x, 2) + pow(point1.GetPosition().y - point2.GetPosition().y, 2)); 
+	return (float)sqrt(pow(m_point1.GetPosition().x - m_point2.GetPosition().x, 2) + pow(m_point1.GetPosition().y - m_point2.GetPosition().y, 2)); 
 }
 
-std::string CLineSegment::GetTypeShape() const
+std::string CLineSegment::GetShapeType() const
 {
 	return "Line"; 
 }
@@ -79,9 +80,9 @@ std::string CLineSegment::GetTypeShape() const
 std::string CLineSegment::GetStringRepresentation() const
 {
 	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	std::string stringPositionPoint1 = " <" + std::to_string(point1.GetPosition().x) + ", " + std::to_string(point1.GetPosition().y) + ">,";
-	std::string stringPositionPoint2 = " <" + std::to_string(point2.GetPosition().x) + ", " + std::to_string(point2.GetPosition().y) + ">,";
-	return std::string(GetTypeShape() + stringPositionPoint1 + stringPositionPoint2 + stringAreaAndPerimetr);
+	std::string stringPositionPoint1 = " <" + std::to_string(m_point1.GetPosition().x) + ", " + std::to_string(m_point1.GetPosition().y) + ">,";
+	std::string stringPositionPoint2 = " <" + std::to_string(m_point2.GetPosition().x) + ", " + std::to_string(m_point2.GetPosition().y) + ">,";
+	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + stringAreaAndPerimetr);
 }
 //---------------------------------------------
 
@@ -89,35 +90,40 @@ std::string CLineSegment::GetStringRepresentation() const
 //-----------------CRectangle------------------
 void CRectangle::SetPosition(int x, int y) 
 {
-	position.SetPosition(x, y); 
+	m_position.SetPosition(x, y); 
+}
+
+void CRectangle::SetPosition(CPoint point)
+{
+	m_position.SetPosition(point.GetPosition());
 }
 
 void CRectangle::SetSize(int width, int height) 
 {
-	size.width = width; size.height = height; 
+	m_size.width = width; m_size.height = height; 
 }
 
-CPoint CRectangle::GetPosition() const 
+const CPoint CRectangle::GetPosition() const
 {
-	return position;
+	return m_position;
 }
 
 CRectangle::Size CRectangle::GetSize() const 
 {
-	return size;
+	return m_size;
 }
 
 float CRectangle::GetArea() const
 {
-	return (float)(size.width * size.height); 
+	return (float)(m_size.width * m_size.height); 
 }
 
 float CRectangle::GetPerimetr() const
 {
-	return (float)((size.width + size.width) * 2); 
+	return (float)((m_size.width + m_size.width) * 2); 
 }
 
-std::string CRectangle::GetTypeShape() const 
+std::string CRectangle::GetShapeType() const 
 {
 	return "Rectangle"; 
 }
@@ -125,9 +131,9 @@ std::string CRectangle::GetTypeShape() const
 std::string CRectangle::GetStringRepresentation() const
 {
 	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	std::string stringSize = ", " + std::to_string(size.width) + ", " + std::to_string(size.height);
-	std::string stringPositionPointLTAndSize = " <" + std::to_string(position.GetPosition().x) + ", " + std::to_string(position.GetPosition().y) + stringSize + ">,";
-	return std::string(GetTypeShape() + stringPositionPointLTAndSize + stringAreaAndPerimetr);
+	std::string stringSize = ", " + std::to_string(m_size.width) + ", " + std::to_string(m_size.height);
+	std::string stringPositionPointLTAndSize = " <" + std::to_string(m_position.GetPosition().x) + ", " + std::to_string(m_position.GetPosition().y) + stringSize + ">,";
+	return std::string(GetShapeType() + stringPositionPointLTAndSize + stringAreaAndPerimetr);
 }
 //---------------------------------------------
 
@@ -135,30 +141,35 @@ std::string CRectangle::GetStringRepresentation() const
 //----------------CCircle---------------------
 void CCircle::SetPosition(int x, int y)
 {
-	centerPoint.SetPosition(x, y); 
+	m_centerPoint.SetPosition(x, y); 
 }
 
-CPoint CCircle::GetPosition() const
+void CCircle::SetPosition(CPoint point)
 {
-	return centerPoint; 
+	m_centerPoint.SetPosition(point.GetPosition());
+}
+
+const CPoint CCircle::GetPosition() const
+{
+	return m_centerPoint; 
 }
 
 float CCircle::GetRad() const
 {
-	return radius; 
+	return m_radius; 
 }
 
 float CCircle::GetArea() const 
 {
-	return (float)(M_PI * pow(radius, 2)); 
+	return (float)(M_PI * pow(m_radius, 2)); 
 }
 
 float CCircle::GetPerimetr() const 
 {
-	return (float)(2 * M_PI * radius); 
+	return (float)(2 * M_PI * m_radius); 
 }
 
-std::string CCircle::GetTypeShape() const 
+std::string CCircle::GetShapeType() const 
 {
 	return "Circle"; 
 }
@@ -166,8 +177,8 @@ std::string CCircle::GetTypeShape() const
 std::string CCircle::GetStringRepresentation() const
 {
 	std::string stringAreaAndPerimetr = ", S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	std::string stringPositionCentr = " <" + std::to_string(centerPoint.GetPosition().x) + ", " + std::to_string(centerPoint.GetPosition().y) + ">,";
-	return std::string(GetTypeShape() + stringPositionCentr + " R=" + std::to_string(radius) + stringAreaAndPerimetr);
+	std::string stringPositionCentr = " <" + std::to_string(m_centerPoint.GetPosition().x) + ", " + std::to_string(m_centerPoint.GetPosition().y) + ">,";
+	return std::string(GetShapeType() + stringPositionCentr + " R=" + std::to_string(m_radius) + stringAreaAndPerimetr);
 }
 //---------------------------------------------
 
@@ -175,49 +186,64 @@ std::string CCircle::GetStringRepresentation() const
 //-------------------Triangle------------------
 void CTriangle::SetPositionPoint1(int x, int y)
 {
-	point1.SetPosition(x, y); 
+	m_point1.SetPosition(x, y); 
+}
+
+void CTriangle::SetPositionPoint1(CPoint point)
+{
+	m_point1.SetPosition(point.GetPosition());
 }
 
 void CTriangle::SetPositionPoint2(int x, int y) 
 {
-	point2.SetPosition(x, y); 
+	m_point2.SetPosition(x, y); 
+}
+
+void CTriangle::SetPositionPoint2(CPoint point)
+{
+	m_point2.SetPosition(point.GetPosition());
 }
 
 void CTriangle::SetPositionPoint3(int x, int y) 
 {
-	point3.SetPosition(x, y); 
+	m_point3.SetPosition(x, y); 
 }
 
-CPoint CTriangle::GetPositionPoint1() const 
+void CTriangle::SetPositionPoint3(CPoint point)
 {
-	return point1;
+	m_point3.SetPosition(point.GetPosition());
 }
 
-CPoint CTriangle::GetPositionPoint2() const 
+const CPoint CTriangle::GetPositionPoint1() const
 {
-	return point2; 
+	return m_point1;
 }
 
-CPoint CTriangle::GetPositionPoint3() const 
+const CPoint CTriangle::GetPositionPoint2() const
 {
-	return point3;
+	return m_point2; 
+}
+
+const CPoint CTriangle::GetPositionPoint3() const
+{
+	return m_point3;
 }
 
 float CTriangle::GetArea() const
 {
-	float a = CLineSegment(point1, point2).GetPerimetr();
-	float b = CLineSegment(point1, point3).GetPerimetr();
-	float c = CLineSegment(point3, point2).GetPerimetr();
+	float a = CLineSegment(m_point1, m_point2).GetPerimetr();
+	float b = CLineSegment(m_point1, m_point3).GetPerimetr();
+	float c = CLineSegment(m_point3, m_point2).GetPerimetr();
 	float halfPerimetr = (a + b + c) / 2;
 	return sqrt(halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c));
 };
 
 float CTriangle::GetPerimetr() const
 {
-	return CLineSegment(point1, point2).GetPerimetr() + CLineSegment(point1, point3).GetPerimetr() + CLineSegment(point3, point2).GetPerimetr();
+	return CLineSegment(m_point1, m_point2).GetPerimetr() + CLineSegment(m_point1, m_point3).GetPerimetr() + CLineSegment(m_point3, m_point2).GetPerimetr();
 };
 
-std::string CTriangle::GetTypeShape() const 
+std::string CTriangle::GetShapeType() const 
 {
 	return "Triangle"; 
 }
@@ -225,10 +251,10 @@ std::string CTriangle::GetTypeShape() const
 std::string CTriangle::GetStringRepresentation() const
 {
 	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	std::string stringPositionPoint1 = " <" + std::to_string(point1.GetPosition().x) + ", " + std::to_string(point1.GetPosition().y) + ">,";
-	std::string stringPositionPoint2 = " <" + std::to_string(point2.GetPosition().x) + ", " + std::to_string(point2.GetPosition().y) + ">,";
-	std::string stringPositionPoint3 = " <" + std::to_string(point3.GetPosition().x) + ", " + std::to_string(point3.GetPosition().y) + ">,";
-	return std::string(GetTypeShape() + stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3 + stringAreaAndPerimetr);
+	std::string stringPositionPoint1 = " <" + std::to_string(m_point1.GetPosition().x) + ", " + std::to_string(m_point1.GetPosition().y) + ">,";
+	std::string stringPositionPoint2 = " <" + std::to_string(m_point2.GetPosition().x) + ", " + std::to_string(m_point2.GetPosition().y) + ">,";
+	std::string stringPositionPoint3 = " <" + std::to_string(m_point3.GetPosition().x) + ", " + std::to_string(m_point3.GetPosition().y) + ">,";
+	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3 + stringAreaAndPerimetr);
 }
 //----------------------------------------------
 

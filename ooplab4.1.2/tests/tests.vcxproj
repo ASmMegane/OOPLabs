@@ -156,11 +156,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ooplab4-1-2\IShape.h" />
+    <ClInclude Include="..\ooplab4-1-2\Point.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ooplab4-1-2\IShape.cpp" />
+    <ClCompile Include="..\ooplab4-1-2\Point.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -8,37 +8,38 @@ BOOST_AUTO_TEST_SUITE(myTests)
 
 BOOST_AUTO_TEST_CASE(testing_CPoint_constructor)
 {
-	CPoint shape(1, 4);
+	CPointShape shape(1, 4);
 	BOOST_CHECK(shape.GetPosition().x == 1 && shape.GetPosition().y == 4);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CPoint_setPosition_metod)
 {
-	CPoint shape(1, 4);
+	CPointShape shape(1, 4);
 	shape.SetPosition(4, 2);
 	BOOST_CHECK(shape.GetPosition().x == 4 && shape.GetPosition().y == 2);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CPoint_Area_and_Perimetr_metod)
 {
-	CPoint shape(1, 4);
+	CPointShape shape(1, 4);
+	BOOST_CHECK_CLOSE(shape.GetArea(), 0.000, 0.001);
 	BOOST_CHECK(shape.GetArea() == 0);
 	BOOST_CHECK(shape.GetPerimetr() == 0);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CPoint_type_metod)
 {
-	CPoint shape(1, 4);
-	BOOST_CHECK(shape.GetTypeShape() == "Point");
+	CPointShape shape(1, 4);
+	BOOST_CHECK(shape.GetShapeType() == "Point");
 }
 
 BOOST_AUTO_TEST_CASE(testing_CLine_constructor)
 {
 	CLineSegment line(CPoint(1, 4), CPoint(2, 6));
-	BOOST_CHECK(line.GetPointPosition(1).GetPosition().x == 1);
-	BOOST_CHECK(line.GetPointPosition(1).GetPosition().y == 4);
-	BOOST_CHECK(line.GetPointPosition(2).GetPosition().x == 2);
-	BOOST_CHECK(line.GetPointPosition(2).GetPosition().y == 6);
+	BOOST_CHECK(line.GetPointPosition1().GetPosition().x == 1);
+	BOOST_CHECK(line.GetPointPosition1().GetPosition().y == 4);
+	BOOST_CHECK(line.GetPointPosition2().GetPosition().x == 2);
+	BOOST_CHECK(line.GetPointPosition2().GetPosition().y == 6);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CLine_area_metod)
@@ -56,7 +57,7 @@ BOOST_AUTO_TEST_CASE(testing_CLine_Perimetr_metod)
 BOOST_AUTO_TEST_CASE(testing_CLine_type_metod)
 {
 	CLineSegment line(CPoint(1, 4), CPoint(1, 6));
-	BOOST_CHECK(line.GetTypeShape() == "Line");
+	BOOST_CHECK(line.GetShapeType() == "Line");
 }
 
 BOOST_AUTO_TEST_CASE(testing_CRectangle_type_metod)
@@ -71,19 +72,23 @@ BOOST_AUTO_TEST_CASE(testing_CRectangle_type_metod)
 BOOST_AUTO_TEST_CASE(testing_CRectangle_perimetr_metod)
 {
 	CRectangle rect(CPoint(0, 0), 4, 4);
+	float perimetrTest = 4.0 * 4.0;
+	BOOST_CHECK_CLOSE(rect.GetArea(), perimetrTest, 0.0001);
 	BOOST_CHECK(rect.GetPerimetr() == 16);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CRectangle_area_metod)
 {
 	CRectangle rect(CPoint(0, 0), 4, 4);
+	float areaTest = 4.0 * 4.0;
+	BOOST_CHECK_CLOSE(rect.GetArea(), areaTest, 0.0001);
 	BOOST_CHECK(rect.GetArea() == 16);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CRect_type_metod)
 {
 	CRectangle rect(CPoint(0, 0), 4, 4);
-	BOOST_CHECK(rect.GetTypeShape() == "Rectangle");
+	BOOST_CHECK(rect.GetShapeType() == "Rectangle");
 }
 
 BOOST_AUTO_TEST_CASE(testing_CRect_set_position_metod)
@@ -113,18 +118,22 @@ BOOST_AUTO_TEST_CASE(testing_Circle_constructor)
 BOOST_AUTO_TEST_CASE(testing_Circle_type_metod)
 {
 	CCircle circle(CPoint(0, 1), 4);
-	BOOST_CHECK(circle.GetTypeShape() == "Circle");
+	BOOST_CHECK(circle.GetShapeType() == "Circle");
 }
 
 BOOST_AUTO_TEST_CASE(testing_Circle_area_metod)
 {
 	CCircle circle(CPoint(0, 1), 4);
+	double areaTest = M_PI * pow(4, 2);
+	BOOST_CHECK_CLOSE(circle.GetArea(), areaTest, 0.001);
 	BOOST_CHECK((int)circle.GetArea() == 50);
 }
 
 BOOST_AUTO_TEST_CASE(testing_Circle_perimetr_metod)
 {
 	CCircle circle(CPoint(0, 1), 4);
+	double perimetrTest = 2 * M_PI * 4;
+	BOOST_CHECK_CLOSE(circle.GetPerimetr(), perimetrTest, 0.001);
 	BOOST_CHECK((int)circle.GetPerimetr() == 25);
 }
 
@@ -159,14 +168,16 @@ BOOST_AUTO_TEST_CASE(testing_CTriangle_set_position_metod)
 
 BOOST_AUTO_TEST_CASE(testing_CTriangle_area_metod)
 {
-	CTriangle triangle(CPoint(0, 0), CPoint(4, 0), CPoint(0, 4));
-	BOOST_CHECK((int)triangle.GetArea() == 8);
+	CTriangle triangle(CPoint(0, 0), CPoint(1, 0), CPoint(0, 1));
+	double areaTest = sqrt(1.707 * pow(0.707, 2) * (1.707 - 1.414));
+	BOOST_CHECK_CLOSE(triangle.GetArea(), areaTest, 0.001);
 }
 
 BOOST_AUTO_TEST_CASE(testing_CTriangle_perimetr_metod)
 {
-	CTriangle triangle(CPoint(0, 0), CPoint(6, 0), CPoint(0, 8));
-	BOOST_CHECK((int)triangle.GetPerimetr() == 24);
+	CTriangle triangle(CPoint(0, 0), CPoint(1, 0), CPoint(0, 1));
+	double perimetrTest = 2 + sqrt(2);
+	BOOST_CHECK_CLOSE(triangle.GetPerimetr(), perimetrTest, 0.001);
 }
 
 
