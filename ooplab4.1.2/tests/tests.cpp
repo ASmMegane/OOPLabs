@@ -2,6 +2,7 @@
 #define BOOST_TEST_MODULE myTests
 #include <boost/test/unit_test.hpp>
 #include "../ooplab4-1-2/IShape.h"
+#include "../ooplab4-1-2/AllShapesHeader.h"
 
 
 BOOST_AUTO_TEST_SUITE(myTests)

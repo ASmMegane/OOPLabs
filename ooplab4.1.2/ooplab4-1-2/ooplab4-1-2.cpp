@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "IShape.h"
+#include "PointShape.h"
+#include "AllShapesHeader.h"
 #include <vector>
 #include <fstream>
 #include <memory>
