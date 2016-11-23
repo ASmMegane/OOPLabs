@@ -32,6 +32,5 @@ std::string CPointShape::GetShapeType() const
 
 std::string CPointShape::GetStringRepresentation() const
 {
-	std::string stringAreaAndPerimetr = "S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	return std::string(GetShapeType() + " <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, " + stringAreaAndPerimetr);
+	return std::string(GetShapeType() + " <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, " + CShape::GetStringRepresentation());
 }

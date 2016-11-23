@@ -70,9 +70,8 @@ std::string CTriangle::GetShapeType() const
 
 std::string CTriangle::GetStringRepresentation() const
 {
-	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
 	std::string stringPositionPoint1 = " <" + std::to_string(m_point1.GetPosition().x) + ", " + std::to_string(m_point1.GetPosition().y) + ">,";
 	std::string stringPositionPoint2 = " <" + std::to_string(m_point2.GetPosition().x) + ", " + std::to_string(m_point2.GetPosition().y) + ">,";
 	std::string stringPositionPoint3 = " <" + std::to_string(m_point3.GetPosition().x) + ", " + std::to_string(m_point3.GetPosition().y) + ">,";
-	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3 + stringAreaAndPerimetr);
+	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3 + CShape::GetStringRepresentation());
 }

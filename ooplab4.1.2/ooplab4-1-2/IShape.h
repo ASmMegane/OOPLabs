@@ -10,19 +10,34 @@ class IShape
 {
 public:
 	virtual ~IShape() {};
-	virtual float GetArea() const abstract;
-	virtual float GetPerimetr() const abstract;
-	virtual std::string GetShapeType() const abstract;
-	virtual std::string GetStringRepresentation() const abstract;
+
+	virtual float GetArea() const = 0;
+	virtual float GetPerimetr() const = 0;
+
+	virtual std::string GetShapeType() const = 0;
+	virtual std::string GetStringRepresentation() const = 0;
+};
+
+
+
+class CShape : public IShape
+{
+public:
+	virtual std::string GetStringRepresentation() const;
+
 	void SetLineColor(std::string const & colorInput);
 protected:
 	std::string m_shapeLineColor;
 };
 
-class ISolidShape : public IShape
+
+
+class CSolideShape : public CShape
 {
 public:
 	void SetShapeColor(std::string const & colorInput);
 protected:
 	std::string m_shapeColor;
 };
+
+

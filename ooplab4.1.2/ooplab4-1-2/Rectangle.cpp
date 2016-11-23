@@ -45,8 +45,7 @@ std::string CRectangle::GetShapeType() const
 
 std::string CRectangle::GetStringRepresentation() const
 {
-	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
 	std::string stringSize = ", " + std::to_string(m_size.width) + ", " + std::to_string(m_size.height);
 	std::string stringPositionPointLTAndSize = " <" + std::to_string(m_position.GetPosition().x) + ", " + std::to_string(m_position.GetPosition().y) + stringSize + ">,";
-	return std::string(GetShapeType() + stringPositionPointLTAndSize + stringAreaAndPerimetr);
+	return std::string(GetShapeType() + stringPositionPointLTAndSize + CShape::GetStringRepresentation());
 }

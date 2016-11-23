@@ -2,7 +2,7 @@
 #include "IShape.h"
 
 
-class CTriangle : public ISolidShape
+class CTriangle : public CSolideShape
 {
 public:
 	CTriangle(const CPoint & point1, const CPoint & point2, const CPoint & point3);

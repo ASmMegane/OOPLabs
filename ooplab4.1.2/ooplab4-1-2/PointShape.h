@@ -1,13 +1,16 @@
 #pragma once
 #include "IShape.h"
 
-class CPointShape : public IShape
+class CPointShape : public CShape
 {
 public:
 	CPointShape(int x, int y);
+
 	void SetPosition(int x, int y);
+
 	virtual float GetArea() const override;
 	virtual float GetPerimetr() const override;
+
 	virtual std::string GetShapeType() const override;
 	virtual std::string GetStringRepresentation() const override;
 
