@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClInclude Include="..\ooplab4-1-2\AllShapesHeader.h" />
     <ClInclude Include="..\ooplab4-1-2\Circle.h" />
+    <ClInclude Include="..\ooplab4-1-2\CShape.h" />
     <ClInclude Include="..\ooplab4-1-2\IShape.h" />
     <ClInclude Include="..\ooplab4-1-2\LineSegment.h" />
     <ClInclude Include="..\ooplab4-1-2\Point.h" />
@@ -168,7 +169,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ooplab4-1-2\Circle.cpp" />
-    <ClCompile Include="..\ooplab4-1-2\IShape.cpp" />
+    <ClCompile Include="..\ooplab4-1-2\CShape.cpp" />
     <ClCompile Include="..\ooplab4-1-2\LineSegment.cpp" />
     <ClCompile Include="..\ooplab4-1-2\Point.cpp" />
     <ClCompile Include="..\ooplab4-1-2\PointShape.cpp" />

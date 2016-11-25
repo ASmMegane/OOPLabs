@@ -48,15 +48,15 @@
     <ClInclude Include="..\ooplab4-1-2\Triangle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\ooplab4-1-2\CShape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="tests.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\ooplab4-1-2\IShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\ooplab4-1-2\Point.cpp">
@@ -75,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\ooplab4-1-2\Triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ooplab4-1-2\CShape.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
