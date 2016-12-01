@@ -30,7 +30,7 @@ std::string CPointShape::GetShapeType() const
 	return "Point";
 }
 
-std::string CPointShape::GetStringRepresentation() const
+std::string CPointShape::AppendCustomProperties() const
 {
-	return std::string(GetShapeType() + " <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, " + CShape::GetStringRepresentation());
+	return std::string(" <" + std::to_string(GetPosition().x) + ", " + std::to_string(GetPosition().y) + ">, ");
 }

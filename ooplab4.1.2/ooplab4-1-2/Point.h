@@ -13,7 +13,8 @@ public:
 	CPoint(int x, int y) : m_position(x, y) {}
 
 	void SetPosition(int x, int y);
-	void SetPosition(Position position);
+	void SetPosition(const Position & position);
+
 	const Position GetPosition() const;
 
 private:

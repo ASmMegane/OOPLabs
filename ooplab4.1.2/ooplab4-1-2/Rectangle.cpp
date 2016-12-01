@@ -8,7 +8,7 @@ void CRectangle::SetPosition(int x, int y)
 	m_position.SetPosition(x, y);
 }
 
-void CRectangle::SetPosition(CPoint point)
+void CRectangle::SetPosition(const CPoint & point)
 {
 	m_position.SetPosition(point.GetPosition());
 }
@@ -43,9 +43,9 @@ std::string CRectangle::GetShapeType() const
 	return "Rectangle";
 }
 
-std::string CRectangle::GetStringRepresentation() const
+std::string CRectangle::AppendCustomProperties() const
 {
 	std::string stringSize = ", " + std::to_string(m_size.width) + ", " + std::to_string(m_size.height);
 	std::string stringPositionPointLTAndSize = " <" + std::to_string(m_position.GetPosition().x) + ", " + std::to_string(m_position.GetPosition().y) + stringSize + ">,";
-	return std::string(GetShapeType() + stringPositionPointLTAndSize + CShape::GetStringRepresentation());
+	return std::string(stringPositionPointLTAndSize);
 }

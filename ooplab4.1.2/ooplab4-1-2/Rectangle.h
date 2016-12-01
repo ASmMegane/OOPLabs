@@ -1,13 +1,14 @@
 #pragma once
 #include "CShape.h"
 
-class CRectangle : public CSolideShape
+class CRectangle : public CSolidShape
 {
 public:
 	CRectangle(const CPoint & leftTopPoint, int w, int h);
 
 	void SetPosition(int x, int y);
-	void SetPosition(CPoint point);
+	void SetPosition(const CPoint & point);
+
 	const CPoint GetPosition() const;
 
 	void SetSize(int width, int height);
@@ -16,7 +17,9 @@ public:
 	virtual float GetPerimetr() const override;
 
 	virtual std::string GetShapeType() const override;
-	virtual std::string GetStringRepresentation() const override;
+
+protected:
+	virtual std::string AppendCustomProperties() const override;
 
 private:
 	CPoint m_position;

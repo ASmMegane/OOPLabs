@@ -6,7 +6,7 @@ void CPoint::SetPosition(int x, int y)
 	m_position.x = x; m_position.y = y;
 }
 
-void CPoint::SetPosition(Position position)
+void CPoint::SetPosition(const Position & position)
 {
 	m_position.x = position.x; m_position.y = position.y;
 }

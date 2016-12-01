@@ -12,7 +12,9 @@ public:
 	virtual float GetPerimetr() const override;
 
 	virtual std::string GetShapeType() const override;
-	virtual std::string GetStringRepresentation() const override;
+
+protected:
+	virtual std::string AppendCustomProperties() const override;
 
 private:
 	struct Position

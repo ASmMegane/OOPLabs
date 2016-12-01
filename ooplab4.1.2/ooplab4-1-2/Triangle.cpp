@@ -9,7 +9,7 @@ void CTriangle::SetPositionPoint1(int x, int y)
 	m_point1.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint1(CPoint point)
+void CTriangle::SetPositionPoint1(const CPoint & point)
 {
 	m_point1.SetPosition(point.GetPosition());
 }
@@ -19,7 +19,7 @@ void CTriangle::SetPositionPoint2(int x, int y)
 	m_point2.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint2(CPoint point)
+void CTriangle::SetPositionPoint2(const CPoint & point)
 {
 	m_point2.SetPosition(point.GetPosition());
 }
@@ -29,7 +29,7 @@ void CTriangle::SetPositionPoint3(int x, int y)
 	m_point3.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint3(CPoint point)
+void CTriangle::SetPositionPoint3(const CPoint & point)
 {
 	m_point3.SetPosition(point.GetPosition());
 }
@@ -68,10 +68,10 @@ std::string CTriangle::GetShapeType() const
 	return "Triangle";
 }
 
-std::string CTriangle::GetStringRepresentation() const
+std::string CTriangle::AppendCustomProperties() const
 {
 	std::string stringPositionPoint1 = " <" + std::to_string(m_point1.GetPosition().x) + ", " + std::to_string(m_point1.GetPosition().y) + ">,";
 	std::string stringPositionPoint2 = " <" + std::to_string(m_point2.GetPosition().x) + ", " + std::to_string(m_point2.GetPosition().y) + ">,";
 	std::string stringPositionPoint3 = " <" + std::to_string(m_point3.GetPosition().x) + ", " + std::to_string(m_point3.GetPosition().y) + ">,";
-	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3 + CShape::GetStringRepresentation());
+	return std::string(stringPositionPoint1 + stringPositionPoint2 + stringPositionPoint3);
 }

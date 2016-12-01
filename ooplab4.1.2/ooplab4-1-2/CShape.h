@@ -5,16 +5,18 @@
 class CShape : public IShape
 {
 public:
-	virtual std::string GetStringRepresentation() const;
+	virtual std::string GetStringRepresentation() const override;
 
 	void SetLineColor(std::string const & colorInput);
 protected:
+	virtual std::string AppendCustomProperties() const = 0;
+
 	std::string m_shapeLineColor;
 };
 
 
 
-class CSolideShape : public CShape
+class CSolidShape : public CShape
 {
 public:
 	void SetShapeColor(std::string const & colorInput);

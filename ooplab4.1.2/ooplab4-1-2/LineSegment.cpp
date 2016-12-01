@@ -32,9 +32,9 @@ std::string CLineSegment::GetShapeType() const
 	return "Line";
 }
 
-std::string CLineSegment::GetStringRepresentation() const
+std::string CLineSegment::AppendCustomProperties() const
 {
 	std::string stringPositionPoint1 = " <" + std::to_string(m_point1.GetPosition().x) + ", " + std::to_string(m_point1.GetPosition().y) + ">,";
 	std::string stringPositionPoint2 = " <" + std::to_string(m_point2.GetPosition().x) + ", " + std::to_string(m_point2.GetPosition().y) + ">,";
-	return std::string(GetShapeType() + stringPositionPoint1 + stringPositionPoint2 + CShape::GetStringRepresentation());
+	return std::string(stringPositionPoint1 + stringPositionPoint2);
 }

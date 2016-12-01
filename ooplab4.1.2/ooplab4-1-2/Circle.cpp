@@ -8,7 +8,7 @@ void CCircle::SetPosition(int x, int y)
 	m_centerPoint.SetPosition(x, y);
 }
 
-void CCircle::SetPosition(CPoint point)
+void CCircle::SetPosition(const CPoint & point)
 {
 	m_centerPoint.SetPosition(point.GetPosition());
 }
@@ -44,8 +44,8 @@ std::string CCircle::GetShapeType() const
 	return "Circle";
 }
 
-std::string CCircle::GetStringRepresentation() const
+std::string CCircle::AppendCustomProperties() const
 {
 	std::string stringPositionCentr = " <" + std::to_string(m_centerPoint.GetPosition().x) + ", " + std::to_string(m_centerPoint.GetPosition().y) + ">,";
-	return std::string(GetShapeType() + stringPositionCentr + " R=" + std::to_string(m_radius) + CShape::GetStringRepresentation());
+	return std::string(stringPositionCentr + " R=" + std::to_string(m_radius));
 }
