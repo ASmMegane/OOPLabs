@@ -9,10 +9,10 @@
 class IShape
 {
 public:
-	virtual ~IShape() {};
+	virtual ~IShape() = default;
 
 	virtual float GetArea() const = 0;
-	virtual float GetPerimetr() const = 0;
+	virtual float GetPerimeter() const = 0;
 
 	virtual std::string GetShapeType() const = 0;
 	virtual std::string GetStringRepresentation() const = 0;

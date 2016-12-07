@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "Rectangle.h"
 
-CRectangle::CRectangle(const CPoint & leftTopPoint, int w, int h) : m_position(leftTopPoint), m_size(std::max(w, 0), std::max(h, 0)) {}
+CRectangle::CRectangle(const CPoint & leftTopPoint, int w, int h)
+	: m_position(leftTopPoint)
+	, m_size(std::max(w, 0), std::max(h, 0))
+{}
 
 void CRectangle::SetPosition(int x, int y)
 {
@@ -15,7 +18,8 @@ void CRectangle::SetPosition(const CPoint & point)
 
 void CRectangle::SetSize(int width, int height)
 {
-	m_size.width = width; m_size.height = height;
+	m_size.width = width;
+	m_size.height = height;
 }
 
 const CPoint CRectangle::GetPosition() const
@@ -33,7 +37,7 @@ float CRectangle::GetArea() const
 	return (float)(m_size.width * m_size.height);
 }
 
-float CRectangle::GetPerimetr() const
+float CRectangle::GetPerimeter() const
 {
 	return (float)((m_size.width + m_size.width) * 2);
 }

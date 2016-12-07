@@ -7,23 +7,23 @@ class CTriangle : public CSolidShape
 public:
 	CTriangle(const CPoint & point1, const CPoint & point2, const CPoint & point3);
 
-	void SetPositionPoint1(int x, int y);
-	void SetPositionPoint1(const CPoint & point);
+	void SetFirstPositionPoint(int x, int y);
+	void SetFirstPositionPoint(const CPoint & point);
 
-	const CPoint GetPositionPoint1() const;
+	const CPoint GetFirstPositionPoint() const;
 
-	void SetPositionPoint2(int x, int y);
-	void SetPositionPoint2(const CPoint & point);
+	void SetSecondPositionPoint(int x, int y);
+	void SetSecondPositionPoint(const CPoint & point);
 
-	const CPoint GetPositionPoint2() const;
+	const CPoint GetSecondPositionPoint() const;
 
-	void SetPositionPoint3(int x, int y);
-	void SetPositionPoint3(const CPoint & point);
+	void SetThirdPositionPoint(int x, int y);
+	void SetThirdPositionPoint(const CPoint & point);
 
-	const CPoint GetPositionPoint3() const;
+	const CPoint GetThirdPositionPoint() const;
 
 	virtual float GetArea() const override;
-	virtual float GetPerimetr() const override;
+	virtual float GetPerimeter() const override;
 
 	virtual std::string GetShapeType() const override;
 

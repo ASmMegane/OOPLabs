@@ -6,11 +6,11 @@ class CLineSegment : public CShape
 public:
 	CLineSegment(const CPoint & point1, const CPoint & point2);
 
-	const CPoint GetPointPosition1();
-	const CPoint GetPointPosition2();
+	const CPoint GetFirstPointPosition();
+	const CPoint GetSecondPointPosition();
 
 	virtual float GetArea() const override;
-	virtual float GetPerimetr() const override;
+	virtual float GetPerimeter() const override;
 
 	virtual std::string GetShapeType() const override;
 

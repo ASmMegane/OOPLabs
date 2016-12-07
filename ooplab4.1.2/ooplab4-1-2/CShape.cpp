@@ -11,8 +11,8 @@ void CShape::SetLineColor(std::string const & colorInput)
 
 std::string CShape::GetStringRepresentation() const
 {
-	std::string stringAreaAndPerimetr = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimetr());
-	std::string strRepresentation = GetShapeType() + AppendCustomProperties() + stringAreaAndPerimetr;
+	std::string stringAreaAndPerimeter = " S = " + std::to_string(GetArea()) + ", P = " + std::to_string(GetPerimeter());
+	std::string strRepresentation = GetShapeType() + AppendCustomProperties() + stringAreaAndPerimeter;
 	return strRepresentation;
 }
 //--------------------------------

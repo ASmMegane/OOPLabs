@@ -96,7 +96,8 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>"$(TargetPath)"</Command>
+      <Command>"$(TargetPath)" --log_level=test_suite</Command>
+      <Message>Running unit test</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,7 +132,8 @@
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>"$(TargetPath)"</Command>
+      <Command>"$(TargetPath)" --log_level=test_suite</Command>
+      <Message>Running unit test</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,6 +177,7 @@
     <ClCompile Include="..\ooplab4-1-2\PointShape.cpp" />
     <ClCompile Include="..\ooplab4-1-2\Rectangle.cpp" />
     <ClCompile Include="..\ooplab4-1-2\Triangle.cpp" />
+    <ClCompile Include="Source.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -9,7 +9,7 @@ public:
 	void SetPosition(int x, int y);
 
 	virtual float GetArea() const override;
-	virtual float GetPerimetr() const override;
+	virtual float GetPerimeter() const override;
 
 	virtual std::string GetShapeType() const override;
 

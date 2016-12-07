@@ -2,65 +2,69 @@
 #include "Triangle.h"
 #include "LineSegment.h"
 
-CTriangle::CTriangle(const CPoint & point1, const CPoint & point2, const CPoint & point3) : m_point1(point1), m_point2(point2), m_point3(point3) {}
+CTriangle::CTriangle(const CPoint & point1, const CPoint & point2, const CPoint & point3)
+	: m_point1(point1)
+	, m_point2(point2)
+	, m_point3(point3)
+{}
 
-void CTriangle::SetPositionPoint1(int x, int y)
+void CTriangle::SetFirstPositionPoint(int x, int y)
 {
 	m_point1.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint1(const CPoint & point)
+void CTriangle::SetFirstPositionPoint(const CPoint & point)
 {
 	m_point1.SetPosition(point.GetPosition());
 }
 
-void CTriangle::SetPositionPoint2(int x, int y)
+void CTriangle::SetSecondPositionPoint(int x, int y)
 {
 	m_point2.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint2(const CPoint & point)
+void CTriangle::SetSecondPositionPoint(const CPoint & point)
 {
 	m_point2.SetPosition(point.GetPosition());
 }
 
-void CTriangle::SetPositionPoint3(int x, int y)
+void CTriangle::SetThirdPositionPoint(int x, int y)
 {
 	m_point3.SetPosition(x, y);
 }
 
-void CTriangle::SetPositionPoint3(const CPoint & point)
+void CTriangle::SetThirdPositionPoint(const CPoint & point)
 {
 	m_point3.SetPosition(point.GetPosition());
 }
 
-const CPoint CTriangle::GetPositionPoint1() const
+const CPoint CTriangle::GetFirstPositionPoint() const
 {
 	return m_point1;
 }
 
-const CPoint CTriangle::GetPositionPoint2() const
+const CPoint CTriangle::GetSecondPositionPoint() const
 {
 	return m_point2;
 }
 
-const CPoint CTriangle::GetPositionPoint3() const
+const CPoint CTriangle::GetThirdPositionPoint() const
 {
 	return m_point3;
 }
 
 float CTriangle::GetArea() const
 {
-	float a = CLineSegment(m_point1, m_point2).GetPerimetr();
-	float b = CLineSegment(m_point1, m_point3).GetPerimetr();
-	float c = CLineSegment(m_point3, m_point2).GetPerimetr();
+	float a = CLineSegment(m_point1, m_point2).GetPerimeter();
+	float b = CLineSegment(m_point1, m_point3).GetPerimeter();
+	float c = CLineSegment(m_point3, m_point2).GetPerimeter();
 	float halfPerimetr = (a + b + c) / 2;
 	return sqrt(halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c));
 };
 
-float CTriangle::GetPerimetr() const
+float CTriangle::GetPerimeter() const
 {
-	return CLineSegment(m_point1, m_point2).GetPerimetr() + CLineSegment(m_point1, m_point3).GetPerimetr() + CLineSegment(m_point3, m_point2).GetPerimetr();
+	return CLineSegment(m_point1, m_point2).GetPerimeter() + CLineSegment(m_point1, m_point3).GetPerimeter() + CLineSegment(m_point3, m_point2).GetPerimeter();
 };
 
 std::string CTriangle::GetShapeType() const

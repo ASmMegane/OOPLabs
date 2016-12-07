@@ -4,17 +4,17 @@
 class CCircle : public CSolidShape
 {
 public:
-	CCircle(const CPoint & centr, float rad);
+	CCircle(const CPoint & centr, float radius);
 
 	void SetPosition(int x, int y);
 	void SetPosition(const CPoint & point);
 
 	const CPoint GetPosition() const;
 
-	float GetRad() const;
+	float GetRadius() const;
 
 	virtual float GetArea() const override;
-	virtual float GetPerimetr() const override;
+	virtual float GetPerimeter() const override;
 
 	virtual std::string GetShapeType() const override;
 

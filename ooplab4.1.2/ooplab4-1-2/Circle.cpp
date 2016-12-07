@@ -1,7 +1,10 @@
 #include "stdafx.h"
 #include "Circle.h"
 
-CCircle::CCircle(const CPoint & centr, float rad) : m_centerPoint(centr), m_radius(std::max(rad, 0.0f)) {}
+CCircle::CCircle(const CPoint & centr, float radius) 
+	: m_centerPoint(centr)
+	, m_radius(std::max(radius, 0.0f))
+{}
 
 void CCircle::SetPosition(int x, int y)
 {
@@ -20,7 +23,7 @@ const CPoint CCircle::GetPosition() const
 
 
 
-float CCircle::GetRad() const
+float CCircle::GetRadius() const
 {
 	return m_radius;
 }
@@ -32,7 +35,7 @@ float CCircle::GetArea() const
 	return (float)(M_PI * pow(m_radius, 2));
 }
 
-float CCircle::GetPerimetr() const
+float CCircle::GetPerimeter() const
 {
 	return (float)(2 * M_PI * m_radius);
 }
