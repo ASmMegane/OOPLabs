@@ -10,17 +10,17 @@ public:
 	void SetFirstPositionPoint(int x, int y);
 	void SetFirstPositionPoint(const CPoint & point);
 
-	const CPoint GetFirstPositionPoint() const;
+	CPoint GetFirstPositionPoint();
 
 	void SetSecondPositionPoint(int x, int y);
 	void SetSecondPositionPoint(const CPoint & point);
 
-	const CPoint GetSecondPositionPoint() const;
+	CPoint GetSecondPositionPoint();
 
 	void SetThirdPositionPoint(int x, int y);
 	void SetThirdPositionPoint(const CPoint & point);
 
-	const CPoint GetThirdPositionPoint() const;
+	CPoint GetThirdPositionPoint();
 
 	virtual float GetArea() const override;
 	virtual float GetPerimeter() const override;

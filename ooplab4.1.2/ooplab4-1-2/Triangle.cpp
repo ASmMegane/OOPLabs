@@ -38,17 +38,17 @@ void CTriangle::SetThirdPositionPoint(const CPoint & point)
 	m_point3.SetPosition(point.GetPosition());
 }
 
-const CPoint CTriangle::GetFirstPositionPoint() const
+CPoint CTriangle::GetFirstPositionPoint()
 {
 	return m_point1;
 }
 
-const CPoint CTriangle::GetSecondPositionPoint() const
+CPoint CTriangle::GetSecondPositionPoint()
 {
 	return m_point2;
 }
 
-const CPoint CTriangle::GetThirdPositionPoint() const
+CPoint CTriangle::GetThirdPositionPoint()
 {
 	return m_point3;
 }
@@ -58,8 +58,8 @@ float CTriangle::GetArea() const
 	float a = CLineSegment(m_point1, m_point2).GetPerimeter();
 	float b = CLineSegment(m_point1, m_point3).GetPerimeter();
 	float c = CLineSegment(m_point3, m_point2).GetPerimeter();
-	float halfPerimetr = (a + b + c) / 2;
-	return sqrt(halfPerimetr * (halfPerimetr - a) * (halfPerimetr - b) * (halfPerimetr - c));
+	float halfPerimeter = (a + b + c) / 2;
+	return sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
 };
 
 float CTriangle::GetPerimeter() const

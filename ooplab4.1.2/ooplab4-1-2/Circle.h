@@ -9,9 +9,9 @@ public:
 	void SetPosition(int x, int y);
 	void SetPosition(const CPoint & point);
 
-	const CPoint GetPosition() const;
+	CPoint GetPosition();
 
-	float GetRadius() const;
+	float GetRadius();
 
 	virtual float GetArea() const override;
 	virtual float GetPerimeter() const override;

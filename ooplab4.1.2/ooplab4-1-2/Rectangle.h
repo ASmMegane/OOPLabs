@@ -9,7 +9,7 @@ public:
 	void SetPosition(int x, int y);
 	void SetPosition(const CPoint & point);
 
-	const CPoint GetPosition() const;
+	CPoint GetPosition();
 
 	void SetSize(int width, int height);
 
@@ -22,7 +22,6 @@ protected:
 	virtual std::string AppendCustomProperties() const override;
 
 private:
-	CPoint m_position;
 	struct Size
 	{
 		Size(int w, int h) : width(w), height(h) {}
@@ -30,6 +29,7 @@ private:
 		int height;
 	};
 	Size m_size;
+	CPoint m_position;
 
 public:
 	Size GetSize() const;

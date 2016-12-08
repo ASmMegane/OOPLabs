@@ -90,7 +90,7 @@ void ReadShapes(const std::string & inFile, std::vector<std::shared_ptr<CShape>>
 	}
 }
 
-void OutputShapesData(std::vector<std::shared_ptr<CShape>> & shapesVector)
+void OutputShapesData(const std::vector<std::shared_ptr<CShape>> & shapesVector)
 {
 	for (auto shapePtr : shapesVector)
 	{
@@ -111,9 +111,9 @@ void SortShapesData(std::vector<std::shared_ptr<CShape>> & shapesVector)
 	std::sort(shapesVector.begin(), shapesVector.end(),
 		[](std::shared_ptr<CShape> shape1Ptr, std::shared_ptr<CShape> shape2Ptr)
 	{
-		return shape1Ptr->GetPerimetr() > shape2Ptr->GetPerimetr();
+		return shape1Ptr->GetPerimeter() > shape2Ptr->GetPerimeter();
 	});
-	std::cout << std::endl << "Perimetr:" << std::endl << std::endl;
+	std::cout << std::endl << "Perimeter:" << std::endl << std::endl;
 	OutputShapesData(shapesVector);
 }
 

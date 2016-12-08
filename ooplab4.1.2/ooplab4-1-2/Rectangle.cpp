@@ -22,7 +22,7 @@ void CRectangle::SetSize(int width, int height)
 	m_size.height = height;
 }
 
-const CPoint CRectangle::GetPosition() const
+CPoint CRectangle::GetPosition()
 {
 	return m_position;
 }

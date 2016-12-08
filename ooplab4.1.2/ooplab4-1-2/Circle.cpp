@@ -16,14 +16,14 @@ void CCircle::SetPosition(const CPoint & point)
 	m_centerPoint.SetPosition(point.GetPosition());
 }
 
-const CPoint CCircle::GetPosition() const
+CPoint CCircle::GetPosition()
 {
 	return m_centerPoint;
 }
 
 
 
-float CCircle::GetRadius() const
+float CCircle::GetRadius()
 {
 	return m_radius;
 }

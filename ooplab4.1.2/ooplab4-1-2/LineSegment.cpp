@@ -6,12 +6,12 @@ CLineSegment::CLineSegment(const CPoint & point1, const CPoint & point2)
 	, m_point2(point2)
 {};
 
-const CPoint CLineSegment::GetFirstPointPosition()
+CPoint CLineSegment::GetFirstPointPosition()
 {
 	return m_point1;
 };
 
-const CPoint CLineSegment::GetSecondPointPosition()
+CPoint CLineSegment::GetSecondPointPosition()
 {
 	return m_point2;
 };
